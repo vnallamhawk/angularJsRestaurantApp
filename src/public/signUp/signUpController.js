@@ -26,7 +26,7 @@
                 signUp.menuItems = response;
                 var menuName = response.name;
                 var menuDesc = response.description;
-                var saved = menuListService.savedUserItem(firstName,lastName,email,phone,menuNumber,menuName,menuDesc);
+                signUp.saved = menuListService.savedUserItem(firstName,lastName,email,phone,menuNumber,menuName,menuDesc);
 
             }).catch(function (reason) {
                 signUp.menuItemExist= false;

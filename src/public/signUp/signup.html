@@ -7,9 +7,14 @@
 <body>
 <form name="signUp.signUpForm" novalidate>
 <div class="container inputElement">
+    <div class="alert alert-success" ng-if="signUp.saved">
+        <span class="alert alert-success" >
+            User has been enrolled for the new letter
+          </span>
+    </div>
     <div class="row">
         <div class="col-md-offset-2 col-md-2"> First Name </div>
-        <div class="col-md-8"> <input type="text" name="firstName" ng-model="firstName"
+        <div class="col-md-8"> <input type="text" name="firstName" placeholder="First Name" ng-model="firstName"
                                       ng-minlength="3"
         required>
             <span ng-if="(signUp.signUpForm.firstName.$error.minlength || signUp.signUpForm.firstName.$error.required) && signUp.signUpForm.firstName.$touched">
@@ -18,21 +23,21 @@
     </div>
     <div class="row">
         <div class="col-md-offset-2 col-md-2"> Last Name </div>
-        <div class="col-md-8"> <input type="text" name="lastName" ng-model="lastName"  ng-minlength="3" required>
+        <div class="col-md-8"> <input type="text" name="lastName" placeholder="Last Name" ng-model="lastName"  ng-minlength="3" required>
             <span ng-if="(signUp.signUpForm.lastName.$error.minlength || signUp.signUpForm.lastName.$error.required) && signUp.signUpForm.lastName.$touched">
             Last Name must be at least 3 characters long
           </span></div>
     </div>
     <div class="row">
         <div class="col-md-offset-2 col-md-2"> Email Address </div>
-        <div class="col-md-8"> <input type="email" name="email" ng-model="email" > </div>
+        <div class="col-md-8"> <input type="email" name="email" placeholder="Email" ng-model="email" > </div>
         <span ng-if="signUp.signUpForm.email.$invalid && signUp.signUpForm.email.$touched">
             Must be a valid email address: handle@domain format
           </span>
     </div>
     <div class="row">
         <div class="col-md-offset-2 col-md-2"> Phone Number </div>
-        <div class="col-md-8"> <input type="text" pattern="(\d{3})-(\d{3})-(\d{4})" ng-model="phone"
+        <div class="col-md-8"> <input type="text" pattern="(\d{3})-(\d{3})-(\d{4})" placeholder="Phone Number" ng-model="phone"
         name="phone">
             <span ng-if="signUp.signUpForm.phone.$invalid && signUp.signUpForm.phone.$touched">
             Phone must be in the format ###-###-####.
@@ -40,11 +45,13 @@
     </div>
     <div class="row">
         <div class="col-md-offset-2 col-md-2"> Menu Number </div>
-        <div class="col-md-4"> <input type="text" ng-model="menuNumber" >
+        <div class="col-md-8"> <input type="text" placeholder="Menu Number" ng-model="menuNumber" >
             <span ng-if="!signUp.menuItemExist">
             The menu item does not exist.
-          </span></div>
+          </span>
+           </div>
     </div>
+
     <div class="row">
         <div class="col-md-offset-5">
         <input type="button" ng-disabled="signUp.signUpForm.$invalid" value="Submit" ng-click="signUp.formSubmit(menuNumber)">
