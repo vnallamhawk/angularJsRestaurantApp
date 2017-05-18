@@ -1,0 +1,17 @@
+
+<div class="container" ng-if="$ctrl.menuItems.length">
+    <div class="row">
+<div class="col-md-2"> First Name</div>    {{$ctrl.menuItems[0].firstName}}</div>
+    <div class="row"><div class="col-md-4">Last Name</div>  {{$ctrl.menuItems[0].lastName}}</div>
+    <div class="row"> <div class="col-md-4"> Phone </div>{{$ctrl.menuItems[0].phone}}</div>
+    <div class="row">  <div class="col-md-4"> Email</div>     {{$ctrl.menuItems[0].email}}</div>
+    <div class="row">  <div class="col-md-4"> Menu Name</div>   {{$ctrl.menuItems[0].menuName}}</div>
+    <div class="row">  <div class="col-md-4"> Menu Description </div>   {{$ctrl.menuItems[0].menuDesc}}</div>
+</div>
+<div class="container" ng-if="!$ctrl.menuItems.length">
+  You have not registered
+        <a ui-sref="public.signUp">
+            <br class="hidden-xs"> Please Sign Up using this link</a>
+</div>
+
+

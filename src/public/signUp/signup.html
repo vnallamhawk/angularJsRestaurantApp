@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="signUp.signUpForm" novalidate>
+<div class="container inputElement">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-2"> First Name </div>
+        <div class="col-md-8"> <input type="text" name="firstName" ng-model="firstName"
+                                      ng-minlength="3"
+        required>
+            <span ng-if="(signUp.signUpForm.firstName.$error.minlength || signUp.signUpForm.firstName.$error.required) && signUp.signUpForm.firstName.$touched">
+            First Name must be at least 3 characters long
+          </span></div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-2"> Last Name </div>
+        <div class="col-md-8"> <input type="text" name="lastName" ng-model="lastName"  ng-minlength="3" required>
+            <span ng-if="(signUp.signUpForm.lastName.$error.minlength || signUp.signUpForm.lastName.$error.required) && signUp.signUpForm.lastName.$touched">
+            Last Name must be at least 3 characters long
+          </span></div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-2"> Email Address </div>
+        <div class="col-md-8"> <input type="email" name="email" ng-model="email" > </div>
+        <span ng-if="signUp.signUpForm.email.$invalid && signUp.signUpForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-2"> Phone Number </div>
+        <div class="col-md-8"> <input type="text" pattern="(\d{3})-(\d{3})-(\d{4})" ng-model="phone"
+        name="phone">
+            <span ng-if="signUp.signUpForm.phone.$invalid && signUp.signUpForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span></div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-2"> Menu Number </div>
+        <div class="col-md-4"> <input type="text" ng-model="menuNumber" >
+            <span ng-if="!signUp.menuItemExist">
+            The menu item does not exist.
+          </span></div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-5">
+        <input type="button" ng-disabled="signUp.signUpForm.$invalid" value="Submit" ng-click="signUp.formSubmit(menuNumber)">
+    </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
